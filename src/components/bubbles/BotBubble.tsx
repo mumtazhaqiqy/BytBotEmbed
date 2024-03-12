@@ -17,6 +17,7 @@ type Props = {
   backgroundColor?: string;
   textColor?: string;
   chatFeedbackStatus?: boolean;
+  fontSize?: number;
 };
 
 const defaultBackgroundColor = '#f7f8ff';
@@ -153,7 +154,7 @@ export const BotBubble = (props: Props) => {
   });
 
   return (
-    <div class="flex flex-col justify-start mb-2 items-start host-container" style={{ 'margin-right': '50px' }}>
+    <div class="flex flex-col justify-start mb-5 items-start host-container" style={{ 'margin-right': '50px' }}>
       <Show when={props.showAvatar}>
         <Avatar initialAvatarSrc={props.avatarSrc} />
       </Show>
@@ -165,7 +166,8 @@ export const BotBubble = (props: Props) => {
           style={{
             'background-color': props.backgroundColor ?? defaultBackgroundColor,
             color: props.textColor ?? defaultTextColor,
-            'border-radius': '6px',
+            'border-radius': '15px 15px 15px 0px',
+            'font-size': props.fontSize ? `${props.fontSize}px` : '16px',
           }}
         />
       )}

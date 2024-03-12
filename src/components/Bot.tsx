@@ -740,7 +740,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
     <>
       <div
         ref={botContainer}
-        class={'relative flex w-full h-full text-base overflow-hidden bg-cover bg-center flex-col items-center chatbot-container ' + props.class}
+        class={'relative flex w-full h-full overflow-hidden bg-cover bg-center flex-col items-center chatbot-container ' + props.class}
         onDragEnter={handleDrag}
       >
         {isDragActive() && (
@@ -774,12 +774,12 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
 
         {props.showTitle ? (
           <div
-            class="flex flex-row items-center w-full h-[50px] absolute top-0 left-0 z-10"
+            class="flex flex-row items-center w-full h-[60px] absolute top-0 left-0 z-10"
             style={{
               background: props.bubbleBackgroundColor,
               color: props.bubbleTextColor,
-              'border-top-left-radius': props.isFullPage ? '0px' : '6px',
-              'border-top-right-radius': props.isFullPage ? '0px' : '6px',
+              'border-top-left-radius': props.isFullPage ? '0px' : '15px',
+              'border-top-right-radius': props.isFullPage ? '0px' : '15px',
             }}
           >
             <Show when={props.titleAvatarSrc}>
@@ -789,7 +789,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
               </>
             </Show>
             <Show when={props.title}>
-              <span class="px-3 whitespace-pre-wrap font-semibold max-w-full">{props.title}</span>
+              <span class="px-5 whitespace-pre-wrap font-semibold max-w-full">{props.title}</span>
             </Show>
             <div style={{ flex: 1 }} />
             <DeleteButton
@@ -836,6 +836,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
                         showAvatar={props.botMessage?.showAvatar}
                         avatarSrc={props.botMessage?.avatarSrc}
                         chatFeedbackStatus={chatFeedbackStatus()}
+                        fontSize={props.fontSize}
                       />
                     )}
                     {message.type === 'userMessage' && loading() && index() === messages().length - 1 && <LoadingBubble />}
